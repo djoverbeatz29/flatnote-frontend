@@ -7,3 +7,5 @@ class NoteContainer extends React.Component {
         return <div class='note-container'>{notes}</div>
     }
 }
+
+export default NoteContainer
