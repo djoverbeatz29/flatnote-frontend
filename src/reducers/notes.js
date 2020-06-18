@@ -1,9 +1,9 @@
-export default function notes(state, action) {
+export default function notes(state=[], action) {
     switch(action.type) {
-        case ("CHANGE_TEXT"):
-            return state
-        case ("CHANGE_TITLE"):
-            return state
+        case "ADD_NOTE":
+            return [...state, action.newNote]
+        case "FETCH_NOTES_SUCCESS":
+            return [...state, ...action.notes]
         default:
             return state
     }

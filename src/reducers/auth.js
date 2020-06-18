@@ -1,9 +1,9 @@
-export default function auth(state, action) {
+export default function auth(state=null, action) {
     switch(action.type) {
-        case(""):
-            return
-        case(""):
-            return
+        case 'LOGIN_SUCCESS':
+            return action.user
+        case 'LOGOUT_USER':
+            return null
         default:
             return state
     }
