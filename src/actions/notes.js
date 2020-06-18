@@ -14,7 +14,14 @@ export const fetchNotesSuccess = notesJSON => {
 
 export const updateFilter = filterType => {
     return {
-        type: "UPDATE_FILTER",
+        type: 'UPDATE_FILTER',
         filterType: filterType
+    }
+}
+
+export const deleteNote = index => {
+    return {
+        type: 'DELETE_NOTE',
+        index: index
     }
 }

@@ -3,12 +3,16 @@ import { connect } from 'react-redux'
 import { addNote } from '../actions/notes'
 
 class Form extends React.Component {
-    state = {
-        title: '',
-        content: ''
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: props.title ? props.title : '',
+            content: props.content ? props.content : ''
+        }
     }
 
     handleChange = e => {
+        console.log(this.state)
         this.setState({[e.target.name]: e.target.value})
     }
 
@@ -41,21 +45,25 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form className='note-form' onSubmit={this.handleSubmit}>
-                <input
-                    onChange={this.handleChange}
-                    name='title'
-                    type='text'
-                    placeholder='Title'
-                    value={this.state.title}/>
-                <input
-                    onChange={this.handleChange}
-                    name='content'
-                    type='text'
-                    placeholder='Content'
-                    value={this.state.content}/>
-                <input type="submit" value="New Note"></input>
-            </form>
+            <div>
+                <h2>Create a New Note</h2>
+                <form className='note-form' onSubmit={this.handleSubmit}>
+                    <label>Title</label><br/>
+                    <input
+                        onChange={this.handleChange}
+                        name='title'
+                        type='text'
+                        value={this.state.title}/>
+                        <br></br>
+                    <label>Content</label><br/>
+                    <textarea
+                        onChange={this.handleChange}
+                        name='content'
+                        value={this.state.content}/>
+                    <br></br>
+                    <input type="submit" value="Submit Note"></input>
+                </form>
+            </div>
         )
     }
 }

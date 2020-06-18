@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchNotesSuccess } from '../actions/notes'
+// import Note from './Note'
 
 class NoteContainer extends React.Component {
 
@@ -15,6 +16,8 @@ class NoteContainer extends React.Component {
             return <div key={ix} className='note'>
                 <h1>{noteObj.title}</h1>
                 <p>{noteObj.content}</p>
+                <button>Edit</button>
+                <button onClick={this.deleteNote}>Delete</button>
             </div>
         })
 
